@@ -1,0 +1,32 @@
+--- ti_simplebutton.js	2015-04-08 15:58:03.755375069 +0900
++++ ti_simplebutton_and_gyroscope.js	2015-04-08 17:28:31.118661874 +0900
+@@ -14,6 +14,21 @@
+ 	});
+ }
+ 
++function ti_gyroscope(conned_obj) {
++	var period = 1000; // ms
++	conned_obj.enableGyroscope(function() {
++		conned_obj.setGyroscopePeriod(period, function() {
++			conned_obj.notifyGyroscope(function() {
++				console.info("ready: notifyGyroscope");
++				console.info("notify period = " + period + "ms");
++				conned_obj.on('gyroscopeChange', function(x, y, z) {
++					console.log(x, y, z);
++				});
++			});
++		});
++	});
++}
++
+ var SensorTag = require('sensortag');
+ console.info(">> STOP: Ctrl+C or SensorTag power off");
+ console.info("start");
+@@ -24,6 +39,7 @@
+ 		sensorTag.readDeviceName(function(error, deviceName) {
+ 			console.info("connect: " + deviceName);
+ 			ti_simple_key(sensorTag);
++			ti_gyroscope(sensorTag);
+ 		});
+ 	});
+ 	/* In case of SensorTag PowerOff or out of range when fired `onDisconnect` */
