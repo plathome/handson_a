@@ -33,7 +33,7 @@ var SensorTag = require('sensortag');
 console.info(">> STOP: Ctrl+C or SensorTag power off");
 console.info("start");
 console.info("waiting for connect from " + myUUID);
-SensorTag.discover(function(sensorTag) {
+SensorTag.discoverByUuid(myUUID, function(sensorTag) {
 	console.info("found: connect and setup ... (waiting 5~10 seconds)");
 	sensorTag.connectAndSetup(function() {
 		sensorTag.readDeviceName(function(error, deviceName) {
