@@ -17,12 +17,15 @@ Requirements
 INDEX
 -----
 
+`node-sensortag` `moment-timezone` を使います。 `npm install sandeepmistry/node-sensortag moment-timezone` を実行した上で、各プログラムを起動してください
+
+※特にnode-sensortagはgithub上の最新版をインストールするようにしてください
+
 * ti\_simplebutton.js : 上部ボタンのON/OFFを検知して表示
 * ti\_simplebutton2kinesis.js : 上部ボタンのON/OFF状態をAWS Kinesisへアップロードする
 * ti\_simplebutton\_and\_gyroscope.js : 上部ボタンのON/OFFと共に、ジャイロスコープ情報を表示しつづける
 
 * diff/ : ti\_simplebutton.jsに対してのdiff
-
 
 ### decode\_kinesis\_records.js ###
 
