@@ -7,7 +7,6 @@ var mySTREAM = process.env["AK_STREAM"] || "YOUR_KINESIS_STREAM";
 
 var AWS = require("aws-sdk");
 AWS.config.region = "us-east-1";
-/* Using ~/.aws/credentials */
 var kinesis = new AWS.Kinesis();
 console.info("Using AWS Kinesis Stream: " + mySTREAM);
 
