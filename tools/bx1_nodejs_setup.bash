@@ -12,7 +12,7 @@
 # run: SSID=your_ssid PPHS=wpa_passphrase sh setup 
 #
 
-sed -i "/^exit 0/i bluetooth_rfkill_event &\nsleep 1\nrfkill unblock bluetooth\n\nstty rows 80 cols 200\n" /etc/rc.local
+sed -i "/^exit 0/i bluetooth_rfkill_event &\nsleep 1\nrfkill unblock bluetooth\n" /etc/rc.local
 
 apt-get update
 apt-get install -y ntpdate
